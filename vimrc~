@@ -22,26 +22,21 @@ filetype plugin indent on    " required
 " ---- General configs ----
 
 
-" + When started as "evim", evim.vim will already have done these settings.
+" When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
 
-" + Initialize colorscheme
+" Initialize colorscheme
 colorscheme idle
 
 
 
-" + allow backspacing over everything in insert mode
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" + Tab settings
 " Set tabs to size 2
 set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
-
-" + Split configs
-" 
-
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
