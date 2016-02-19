@@ -9,7 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pkukulak/idle'
-
+Plugin 'tpope/vim-surround'
 
 
 
@@ -21,16 +21,16 @@ filetype plugin indent on    " required
 
 " ---- General configs ----
 
-
 " + When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
 
+" Turn off highlighting for search
+set nohlsearch
+
 " + Initialize colorscheme
 colorscheme idle
-
-
 
 " + allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -40,8 +40,14 @@ set backspace=indent,eol,start
 set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
 
 " + Split configs
-" 
+" Remaps ctrl-w h/j/k/l to just ctrl-h/j/k/l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
+" + Turn on line numbers
+set number
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -135,4 +141,6 @@ map <C-n> :NERDTreeToggle<CR>
 " Close vim if NT is the only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
+" + Surround
+" Map surround to s instead of S
+xmap s <Plug>VSurround
