@@ -10,8 +10,11 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pkukulak/idle'
 Plugin 'tpope/vim-surround'
-
-
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jpalardy/spacehi.vim'
+Plugin 'moll/vim-bbye'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -26,11 +29,17 @@ if v:progname =~? "evim"
   finish
 endif
 
-" Turn off highlighting for search
+" + Turn off highlighting for search
 set nohlsearch
+
+" +  Auto update buffers on file change, ex. branch-change
+set autoread
 
 " + Initialize colorscheme
 colorscheme idle
+
+" + Stops vim from throwing errors when changing from an unsaved buffer
+set hidden
 
 " + allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -137,7 +146,7 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Change open-nerdtree short-cut
-map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeToggle<CR>
 " Close vim if NT is the only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
