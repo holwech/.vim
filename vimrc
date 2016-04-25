@@ -4,6 +4,10 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+
+
+
 " ---- Plugins go here ----
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -19,6 +23,8 @@ Plugin 'moll/vim-bbye'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
 
 
 
@@ -138,6 +144,10 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
+
+
+
+
 " ---- Plugin configs ----
 
 
@@ -153,3 +163,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " + Surround
 " Map surround to s instead of S
 xmap s <Plug>VSurround
+
+" + YCMD
+" Turn on debug and log files for YCM
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_warning_symbol = '.'
+let g:ycm_error_symbol = '..'
+let g:ycm_server_use_vim_stdout = 1
